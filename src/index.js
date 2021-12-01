@@ -19,10 +19,12 @@ fetch(breedUrl)
             return element[0].charAt(0) === document.querySelector("#breed-dropdown").value;
         }); 
      
+        //grabbing array of dogs and converting to DOM with li
         for (let element of filtered) {         
             const li = document.createElement("li");
             li.textContent = element;
             dogList = document.querySelector("#dog-breeds");     
+            //changing color on click event of text 
             li.addEventListener("click", (event) => {            
                 document.querySelectorAll("#dog-breeds li").forEach( element => { 
                     element.style.color = "black"
@@ -38,7 +40,7 @@ fetch(imgUrl)
   .then((resp) => resp.json())
   .then((data) => {    
     data.message.forEach((element) => {
-      
+      //posting dog pictures in main body container
       const li = document.createElement("li");
       li.innerHTML = `<img src=${element} alt="Dog picture" >`;
       dogImgContain = document.querySelector("#dog-image-container");
